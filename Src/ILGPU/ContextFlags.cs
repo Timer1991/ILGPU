@@ -55,6 +55,11 @@ namespace ILGPU
         /// </summary>
         EnableAssertions = 1 << 3,
 
+        /// <summary>
+        /// Enables the internal IR verifier.
+        /// </summary>
+        EnableVerifier = 1 << 4,
+
         //
         // Code generation settings
         //
