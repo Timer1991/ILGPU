@@ -38,17 +38,22 @@ namespace ILGPU
         EnableDebugInformation = 1 << 0,
 
         /// <summary>
+        /// Enables debug information in kernels (if available).
+        /// </summary>
+        EnableKernelDebugInformation = 1 << 1,
+
+        /// <summary>
         /// Enables inline source-code annotations when generating kernels.
         /// </summary>
         /// <remarks>
         /// Note that this is only supported if debug information is activated.
         /// </remarks>
-        EnableInlineSourceAnnotations = 1 << 1,
+        EnableInlineSourceAnnotations = 1 << 2,
 
         /// <summary>
         /// Enables assertions.
         /// </summary>
-        EnableAssertions = 1 << 2,
+        EnableAssertions = 1 << 3,
 
         //
         // Code generation settings
@@ -200,6 +205,9 @@ namespace ILGPU
         internal static ContextFlags Prepare(this ContextFlags flags)
         {
             if (flags.HasFlags(ContextFlags.EnableInlineSourceAnnotations))
+                flags |= ContextFlags.EnableKernelDebugInformation;
+
+            if (flags.HasFlags(ContextFlags.EnableKernelDebugInformation))
                 flags |= ContextFlags.EnableDebugInformation;
 
             if (flags.HasFlags(ContextFlags.NoInlining))
