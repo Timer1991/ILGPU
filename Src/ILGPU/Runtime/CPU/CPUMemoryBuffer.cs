@@ -38,7 +38,7 @@ namespace ILGPU.Runtime.CPU
         internal CPUMemoryBuffer(CPUAccelerator accelerator, TIndex extent)
             : base(accelerator, extent)
         {
-            NativePtr = Marshal.AllocHGlobal(extent.Size * Interop.SizeOf<T>());
+            NativePtr = Marshal.AllocHGlobal(Length * Interop.SizeOf<T>());
         }
 
         #endregion

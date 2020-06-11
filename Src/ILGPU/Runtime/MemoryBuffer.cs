@@ -33,9 +33,9 @@ namespace ILGPU.Runtime
         protected MemoryBuffer(Accelerator accelerator, int length)
             : base(accelerator)
         {
-            if (length < 1)
+            if (length < 0)
                 throw new ArgumentOutOfRangeException(nameof(length));
-            Length = length;
+            Length = Math.Max(length, 1);
         }
 
         #endregion

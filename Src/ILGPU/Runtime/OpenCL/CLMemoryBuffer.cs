@@ -39,7 +39,7 @@ namespace ILGPU.Runtime.OpenCL
                 CLAPI.CreateBuffer(
                     accelerator.ContextPtr,
                     CLBufferFlags.CL_MEM_READ_WRITE,
-                    new IntPtr(extent.Size * ElementSize),
+                    new IntPtr(Length * ElementSize),
                     IntPtr.Zero,
                     out IntPtr resultPtr));
             NativePtr = resultPtr;

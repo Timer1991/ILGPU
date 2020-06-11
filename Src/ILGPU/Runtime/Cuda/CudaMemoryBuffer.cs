@@ -38,7 +38,7 @@ namespace ILGPU.Runtime.Cuda
             CudaException.ThrowIfFailed(
                 CudaAPI.Current.AllocateMemory(
                     out IntPtr resultPtr,
-                    new IntPtr(extent.Size * ElementSize)));
+                    new IntPtr(Length * ElementSize)));
             NativePtr = resultPtr;
         }
 
